@@ -5,11 +5,10 @@ import Link from 'next/link';
 
 export default function Footer() {
   const pathname = usePathname();
-  console.log('pathname', pathname);
 
   return (
     <footer className="w-screen h-32 flex flex-wrap justify-center items-center gap-8 py-8 bg-sky-800">
-      {pathname.split('/').length > 1 && (
+      {pathname !== '/distillery-calculator/' && (
         <Link
           href="/"
           className="text-orange-100 border-2 border-solid border-orange-100 rounded-lg px-4 py-2"
