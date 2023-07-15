@@ -8,7 +8,7 @@ export default function Header() {
 
   return (
     <footer className="w-screen h-32 flex flex-wrap justify-center items-center gap-8 py-8 bg-sky-800">
-      {pathname !== '/' && (
+      {pathname !== '/distillery-calculator' && (
         <Link
           href="/"
           className="text-orange-100 border-2 border-solid border-orange-100 rounded-lg px-4 py-2"
