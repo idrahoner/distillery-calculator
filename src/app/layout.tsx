@@ -28,7 +28,7 @@ export default function RootLayout({
               className="flex items-center gap-1 text-2xl font-bold text-zinc-800 hover:text-orange-700 transition-colors duration-300"
             >
               <svg className="w-8 h-8 fill-current stroke-current stroke-1">
-                <use href="/images/icons.svg#icon-logo"></use>
+                <use href="/distillery-calculator/images/icons.svg#icon-logo"></use>
               </svg>
               <p>
                 <span className="text-orange-700">Ґ</span>уральня
