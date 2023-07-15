@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
+import Footer from '../components/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,21 +23,23 @@ export default function RootLayout({
       >
         <header className="w-screen h-16 mb-4 border-b border-solid border-sky-800">
           <div className="h-full w-5/6 flex items-center px-4 mx-auto">
-            <Link href="/">
-              <p className="text-2xl font-bold text-zinc-800">
+            <Link
+              href="/"
+              className="flex items-center gap-1 text-2xl font-bold text-zinc-800 hover:text-orange-700 transition-colors duration-300"
+            >
+              <svg className="w-8 h-8 fill-current stroke-current stroke-1">
+                <use href="/images/icons.svg#icon-logo"></use>
+              </svg>
+              <p>
                 <span className="text-orange-700">Ґ</span>уральня
               </p>
             </Link>
           </div>
         </header>
         <main className="grow">
-          <div className="h-full w-5/6 flex items-center px-4 mx-auto">
-            {children}
-          </div>
+          <div className="w-5/6 px-4 mx-auto">{children}</div>
         </main>
-        <footer className="w-screen h-32 flex justify-center items-center bg-sky-800">
-          <p className="text-orange-100">&copy; copyright 2023</p>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
