@@ -1,5 +1,6 @@
 {
   "name": "distillery-calculator",
+  "homepage": "distillery-calculator",
   "version": "0.1.0",
   "private": true,
   "scripts": {
