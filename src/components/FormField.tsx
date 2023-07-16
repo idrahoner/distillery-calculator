@@ -6,7 +6,7 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export default function FormField({ label, ...rest }: IProps) {
   return (
-    <label className="flex flex-col gap-2">
+    <label className="flex flex-col gap">
       {label}
       <input
         {...rest}

@@ -1,4 +1,4 @@
-import Form from '@/src/components/Form';
+import FormHeadAndTails from '@/src/components/FormHeadAndTails';
 import Container from '@/src/components/Container';
 import PageTitle from '@/src/components/PageTitle';
 import GoHomeButton from '@/src/components/GoHomeButton';
@@ -10,7 +10,7 @@ export default function SelectionHeadsAndTails() {
       <Section>
         <Container>
           <PageTitle>Відбір голів та хвостів</PageTitle>
-          <Form />
+          <FormHeadAndTails />
         </Container>
       </Section>
       <Section>
