@@ -39,7 +39,9 @@ export default function FromMixWithWater() {
     );
 
     setResult(
-      `Для розбавлення ${volume}л спирту міцністю ${strengthBefore}˚ до ${strengthAfter}˚, потрібно ${calculatedResult}л води. Гарного відпочинку :)`
+      `Для розбавлення ${volume}л спирту міцністю ${strengthBefore}˚ до ${strengthAfter}˚, потрібно ${calculatedResult.toFixed(
+        2
+      )}л води. Гарного відпочинку :)`
     );
   };
 
