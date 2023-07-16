@@ -1,10 +1,11 @@
 import Container from '@/src/components/Container';
+import PageTitle from '@/src/components/PageTitle';
 
 export default function MixWithWater() {
   return (
     <main>
       <Container>
-        <h1>Розбалення спирту з водою</h1>
+        <PageTitle>Розбалення спирту з водою</PageTitle>
       </Container>
     </main>
   );
