@@ -9,23 +9,41 @@ export default function Form() {
       className="flex flex-col gap-4 w-5/6"
       onSubmit={(event) => {
         event.preventDefault();
-        const { number1, number2 } = event.target as typeof event.target & {
-          number1: { value: string };
-          number2: { value: string };
+        const { spirit, strength } = event.target as typeof event.target & {
+          spirit: { value: string };
+          strength: { value: string };
         };
+
+        const essentialSpirit =
+          (Number(strength.value) / 100) * Number(spirit.value);
+
+        const heads = essentialSpirit * 0.11;
+        const tails = essentialSpirit * 0.17;
+        const body = essentialSpirit - heads - tails;
+
         setResult(
-          `The sum is equal to ${Number(number1.value) + Number(number2.value)}`
+          `При перегоні буде отримано ${heads.toFixed(
+            2
+          )}л голів, ${body.toFixed(2)}л тіла та ${tails.toFixed(
+            2
+          )}л хвостів. Вдалого перегону :)`
         );
         event.currentTarget.reset();
       }}
     >
-      <input type="number" name="number1" placeholder="Введіть перше число" />
-      <input type="number" name="number2" placeholder="Введіть друге число" />
+      <input type="number" name="spirit" placeholder="Введіть перше число" />
+      <input type="number" name="strength" placeholder="Введіть друге число" />
       <button type="submit">Порахувати</button>
       <button type="button" onClick={() => setResult('')}>
         Стерти
       </button>
-      <p>{result}</p>
+      <textarea
+        readOnly
+        style={{ resize: 'none' }}
+        rows={5}
+        cols={30}
+        value={result}
+      />
     </form>
   );
 }

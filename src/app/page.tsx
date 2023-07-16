@@ -1,7 +1,7 @@
-import Link from 'next/link';
 import Container from '../components/Container';
 import PageTitle from '../components/PageTitle';
 import ButtonLink from '../components/ButtonLink';
+import Section from '../components/Section';
 
 const navLinks = [
   { href: '/selection-heads-and-tails', title: 'Відбір голів та хвостів' },
@@ -11,7 +11,7 @@ const navLinks = [
 export default function Home() {
   return (
     <main>
-      <section>
+      <Section>
         <Container>
           <PageTitle>Ґуральний калькулятор</PageTitle>
           <nav>
@@ -24,7 +24,7 @@ export default function Home() {
             </ul>
           </nav>
         </Container>
-      </section>
+      </Section>
     </main>
   );
 }
