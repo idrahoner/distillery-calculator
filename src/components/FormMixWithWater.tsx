@@ -4,9 +4,13 @@ import Form from './Form';
 import FormField from './FormField';
 import Button from './Button';
 
-const FORM_INITIAL_STATE = { volume: '', strength: '' };
+const FORM_INITIAL_STATE = {
+  volume: '',
+  strengthBefore: '',
+  strengthAfter: '',
+};
 
-export default function FormHeadAndTails() {
+export default function FromMixWithWater() {
   const [result, setResult] = useState('');
   const [formState, setFormState] = useState(FORM_INITIAL_STATE);
 
@@ -17,19 +21,25 @@ export default function FormHeadAndTails() {
     }));
   };
 
+  const calculate = (volume: number, before: number, after: number) => {
+    const volumeMl = volume * 1000;
+
+    const waterML = (before / after) * volumeMl - volumeMl;
+
+    return waterML / 1000;
+  };
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const essentialSpirit =
-      (Number(formState.strength) / 100) * Number(formState.volume);
-
-    const heads = essentialSpirit * 0.11;
-    const tails = essentialSpirit * 0.17;
-    const body = essentialSpirit - heads - tails;
+    const { volume, strengthBefore, strengthAfter } = formState;
+    const calculatedResult = calculate(
+      Number(volume),
+      Number(strengthBefore),
+      Number(strengthAfter)
+    );
 
     setResult(
-      `При перегоні буде отримано ${heads.toFixed(2)}л голів, ${body.toFixed(
-        2
-      )}л тіла та ${tails.toFixed(2)}л хвостів. Вдалого перегону :)`
+      `Для розбавлення ${volume}л спирту міцністю ${strengthBefore}˚ до ${strengthAfter}˚, потрібно ${calculatedResult}л води. Гарного відпочинку :)`
     );
   };
 
@@ -50,21 +60,36 @@ export default function FormHeadAndTails() {
         onChange={handleInputCahnge}
       />
       <FormField
-        label="Міцність (%):"
+        label="Початкова міцність (%):"
         type="number"
-        name="strength"
+        name="strengthBefore"
         min={0}
         max={100}
         step={0.1}
         placeholder="Міцність в відсотках"
-        value={formState.strength}
+        value={formState.strengthBefore}
+        onChange={handleInputCahnge}
+      />
+      <FormField
+        label="Бажана міцність (%):"
+        type="number"
+        name="strengthAfter"
+        min={0}
+        max={100}
+        step={0.1}
+        placeholder="Міцність в відсотках"
+        value={formState.strengthAfter}
         onChange={handleInputCahnge}
       />
       <div className="flex flex-wrap gap-2">
         <Button
           primary
           type="submit"
-          disabled={!formState.volume || !formState.strength}
+          disabled={
+            !formState.volume ||
+            !formState.strengthBefore ||
+            !formState.strengthAfter
+          }
         >
           Порахувати
         </Button>

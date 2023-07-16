@@ -12,7 +12,7 @@ export default function Button({
   ...rest
 }: IProps) {
   const baseStyle =
-    'flex justify-center items-center grow px-2 py-1 border-2 border-solid border-sky-800 rounded-md hover:scale-95 hover:shadow-md transition duration-300';
+    'flex justify-center items-center grow px-2 py-1 border-2 border-solid border-sky-800 rounded-md enabled:hover:scale-95 enable:hover:shadow-md transition duration-300 disabled:bg-zinc-200 disabled:border-zinc-200 disabled:text-zinc-500';
 
   return (
     <button
