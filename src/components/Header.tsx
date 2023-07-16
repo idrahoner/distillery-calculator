@@ -3,7 +3,7 @@ import Container from './Container';
 
 export default function Header() {
   return (
-    <header className="w-screen h-16 mb-4 border-b border-solid border-sky-800">
+    <header className="w-screen h-16 mb-4 border-b border-solid border-gray-200 shadow">
       <Container className="flex items-center">
         <Link
           href="/"
